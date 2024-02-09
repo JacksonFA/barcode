@@ -5,8 +5,6 @@ from src.controllers.tag_creator_controller import TagCreatorController
 class TagCreatorView:
     def validate_and_create(self, http_request: HttpRequest) -> HttpResponse:
         body = http_request.body
-        if not body.get("product_code"):
-            return HttpResponse(status_code=400, body={ "error": "product_code is required"})
         product_code = body["product_code"]
 
         tag_creator_controller = TagCreatorController()
